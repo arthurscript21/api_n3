@@ -32,6 +32,15 @@ public class Usuarios {
 
     @Column(name="correo")
     private String correo;
+    
+    @Column(name="telefono")
+    private int telefono;
+    
+    @Column(name="comuna")
+    private String comuna;
+    
+    @Column(name="region")
+    private String region;
 
     public int getUser_id() {
         return user_id;

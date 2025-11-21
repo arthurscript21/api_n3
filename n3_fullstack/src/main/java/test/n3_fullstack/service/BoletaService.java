@@ -56,10 +56,6 @@ public class BoletaService {
 
         if (existingBoleta != null) {
             // 2. Actualiza los campos
-            existingBoleta.setUsuarioboleta(b.getUsuarioboleta());
-            existingBoleta.setProductoboleta(b.getProductoboleta());
-            existingBoleta.setCantidadbolesta(b.getCantidadbolesta());
-            existingBoleta.setPrecioboleta(b.getPrecioboleta());
             existingBoleta.setTotalboleta(b.getTotalboleta());
 
             // 3. Guarda y retorna la boleta actualizada

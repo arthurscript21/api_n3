@@ -15,8 +15,11 @@ public class Detalle {
     @Column(name="cantidad")
     private int cantidad;
     
-    @Column(name = "precioUnidad")
-    private int precioUnidad;
+    @Column(name = "total")
+    private int total;
+    
+    @Column(name = "descuento")
+    private int descuento;
     
     // 🔔 LLAVE FORÁNEA 1: Muchos detalles pertenecen a UNA Boleta
     @ManyToOne(fetch = FetchType.LAZY)
@@ -27,11 +30,7 @@ public class Detalle {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id_fk", nullable = false)
     private Producto producto;
-    
-    // Constructor vacío (necesario para JPA)
-    public Detalle() {}
 
-    // Getters y Setters
     public int getDetalle_id() {
         return detalle_id;
     }
@@ -40,7 +39,6 @@ public class Detalle {
         this.detalle_id = detalle_id;
     }
 
-    // 🔔 GETTER/SETTER CORREGIDOS para 'cantidad'
     public int getCantidad() {
         return cantidad;
     }
@@ -49,15 +47,22 @@ public class Detalle {
         this.cantidad = cantidad;
     }
 
-    public int getPrecioUnidad() {
-        return precioUnidad;
+    public int getTotal() {
+        return total;
     }
 
-    public void setPrecioUnidad(int precioUnidad) {
-        this.precioUnidad = precioUnidad;
+    public void setTotal(int total) {
+        this.total = total;
     }
 
-    // Getters y Setters de las FK (Boleta y Producto)
+    public int getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+
     public Boleta getBoleta() {
         return boleta;
     }
@@ -76,8 +81,8 @@ public class Detalle {
 
     @Override
     public String toString() {
-        return "Detalle{" + "detalle_id=" + detalle_id + ", cantidad=" + cantidad + ", precioUnidad=" + precioUnidad + 
-               ", boleta_id=" + (boleta != null ? boleta.getBoleta_id() : "null") + 
-               ", producto_id=" + (producto != null ? producto.getProducto_id() : "null") + '}';
+        return "Detalle{" + "detalle_id=" + detalle_id + ", cantidad=" + cantidad + ", total=" + total + ", descuento=" + descuento + ", boleta=" + boleta + ", producto=" + producto + '}';
     }
+    
+    
 }

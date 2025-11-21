@@ -44,7 +44,7 @@ public class DetalleService {
 
         if (existingDetalle != null) {
             existingDetalle.setCantidad(d.getCantidad());
-            existingDetalle.setPrecioUnidad(d.getPrecioUnidad());
+            existingDetalle.setTotal(d.getTotal());
             
             // Se asume que el objeto 'd' trae los objetos Producto y Boleta
             existingDetalle.setBoleta(d.getBoleta()); 

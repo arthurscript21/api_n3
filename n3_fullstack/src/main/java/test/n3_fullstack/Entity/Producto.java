@@ -27,6 +27,15 @@ public class Producto {
     @Column(name="detalle")
     private String detalle;
     
+    @Column(name = "stock")
+    private int stock;
+            
+    @Column(name = "stockCritico")
+    private int stockCritico;
+    
+    @Column(name = "url")
+    private String url;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categotia_id_fk", nullable = false)
     private Categoria categoria;
@@ -66,6 +75,30 @@ public class Producto {
         this.detalle = detalle;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getStockCritico() {
+        return stockCritico;
+    }
+
+    public void setStockCritico(int stockCritico) {
+        this.stockCritico = stockCritico;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -84,8 +117,9 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "Producto_id=" + Producto_id + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", detalle=" + detalle + ", categoria=" + categoria + ", detalles=" + detalles + '}';
+        return "Producto{" + "Producto_id=" + Producto_id + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", detalle=" + detalle + ", stock=" + stock + ", stockCritico=" + stockCritico + ", url=" + url + ", categoria=" + categoria + ", detalles=" + detalles + '}';
     }
-   
+
+    
     
 }
