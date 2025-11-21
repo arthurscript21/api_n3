@@ -13,7 +13,9 @@ import test.n3_fullstack.Entity.Detalle;
  * @author Duoc
  */
 public interface DetalleRepository extends JpaRepository<Detalle, Integer> {    
-    public Categoria detalle_id(int detalle_id);
+    // Eliminado: public Categoria detalle_id(int detalle_id); 
+    // Este método causaba el error de inicio (BeanCreationException) al no encontrar 
+    // una propiedad válida para la creación de la consulta automática.
 
     public Detalle save(Detalle d);
 }
