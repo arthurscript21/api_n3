@@ -11,6 +11,6 @@ public interface BoleRepository extends JpaRepository<Boleta, Integer> {
     
     // Método para buscar un Boleto por un código (ej. un número de ticket o código de reserva).
     // Debes asegurarte de que la entidad Boleto tenga un campo llamado 'codigo'.
-    public Boleta usuarioboleta(String usuarioboleta);
+    public Boleta findByUsuarioNombreCompleto(String nombre);
     
 }

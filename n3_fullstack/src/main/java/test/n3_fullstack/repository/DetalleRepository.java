@@ -9,5 +9,4 @@ import test.n3_fullstack.Entity.Detalle;
  */
 public interface DetalleRepository extends JpaRepository<Detalle, Integer> {    
     
-    public Detalle savDetalle(Detalle d);
 }
