@@ -15,25 +15,13 @@ import java.util.List;
 @Table(name="PRODUCTO")
 public class Producto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Producto_id;
-
-    @Column(name="nombreProducto")
     private String nombreProducto;
-
-    @Column(name="precio")
     private int precio;
-
-    @Column(name="detalle")
     private String detalle;
-    
-    @Column(name = "stock")
     private int stock;
-            
-    @Column(name = "stockCritico")
     private int stockCritico;
-    
-    @Column(name = "url")
     private String url;
     
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,6 +31,22 @@ public class Producto {
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     private List<Detalle> detalles;
 
+    public Producto(int Producto_id, String nombreProducto, int precio, String detalle, int stock, int stockCritico, String url, Categoria categoria, List<Detalle> detalles) {
+        this.Producto_id = Producto_id;
+        this.nombreProducto = nombreProducto;
+        this.precio = precio;
+        this.detalle = detalle;
+        this.stock = stock;
+        this.stockCritico = stockCritico;
+        this.url = url;
+        this.categoria = categoria;
+        this.detalles = detalles;
+    }
+    
+
+    public Producto() {
+    }
+    
     public int getProducto_id() {
         return Producto_id;
     }

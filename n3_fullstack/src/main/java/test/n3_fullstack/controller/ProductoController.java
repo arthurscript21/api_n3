@@ -29,6 +29,7 @@ public class ProductoController {
     @PostMapping("/addProduct")
     public Producto addProducto(@RequestBody Producto producto) {
         // Llama al método para guardar un solo producto en el servicio
+        System.out.println(producto);
         return service.saveProducto(producto);
     }
   

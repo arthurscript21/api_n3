@@ -1,46 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package test.n3_fullstack.Entity;
 import jakarta.persistence.*;
 
-/**
- *
- * @author PAAWSA02LC1009
- */
+
 @Entity
 @Table(name="USUARIO")
 public class Usuarios {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int user_id;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id_fk", nullable = false)
-    private Usuarios usuario;
-    
-    @Column(name="NombreCompleto")
     private String nombreCompleto;
-    
-    @Column(name="contrasena")
     private String contrasena;
-
-    @Column(name="direccion")
     private String direccion;
-
-    @Column(name="correo")
     private String correo;
-    
-    @Column(name="telefono")
     private int telefono;
-    
-    @Column(name="comuna")
     private String comuna;
-    
-    @Column(name="region")
     private String region;
+
+    @Override
+    public String toString() {
+        return "Usuarios{" + "user_id=" + user_id + ", nombreCompleto=" + nombreCompleto + ", contrasena=" + contrasena + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", comuna=" + comuna + ", region=" + region + '}';
+    }
+
+    public Usuarios(int user_id, String nombreCompleto, String contrasena, String direccion, String correo, int telefono, String comuna, String region) {
+        this.user_id = user_id;
+        this.nombreCompleto = nombreCompleto;
+        this.contrasena = contrasena;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.comuna = comuna;
+        this.region = region;
+    }
+
+    public Usuarios() {
+    }
 
     public int getUser_id() {
         return user_id;
@@ -48,14 +42,6 @@ public class Usuarios {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
-    }
-
-    public Usuarios getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuarios usuario) {
-        this.usuario = usuario;
     }
 
     public String getNombreCompleto() {
@@ -90,9 +76,29 @@ public class Usuarios {
         this.correo = correo;
     }
 
-    @Override
-    public String toString() {
-        return "Usuarios{" + "user_id=" + user_id + ", usuario=" + usuario + ", nombreCompleto=" + nombreCompleto + ", contrasena=" + contrasena + ", direccion=" + direccion + ", correo=" + correo + '}';
+    public int getTelefono() {
+        return telefono;
     }
 
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(String comuna) {
+        this.comuna = comuna;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+ 
 }

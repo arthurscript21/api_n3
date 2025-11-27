@@ -24,6 +24,7 @@ public class UsuarioController {
     // 1. CREATE: Agregar un solo usuario (análogo a addPokemon)
     @PostMapping("/addUsuario")
     public Usuarios addUsuarios(@RequestBody Usuarios u) {
+        System.out.println(u);
         return service.saveUsuarios(u);
     }
   
