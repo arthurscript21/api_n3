@@ -11,7 +11,6 @@ public class Detalle {
     @GeneratedValue
     private int detalle_id;
     
-    // 🔔 CORREGIDO: Usamos el nombre simple 'cantidad' y lo declaramos junto con la anotación
     @Column(name="cantidad")
     private int cantidad;
     
@@ -21,7 +20,7 @@ public class Detalle {
     @Column(name = "descuento")
     private int descuento;
     
-    // 🔔 LLAVE FORÁNEA 1: Muchos detalles pertenecen a UNA Boleta
+    /* 🔔 LLAVE FORÁNEA 1: Muchos detalles pertenecen a UNA Boleta
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "boleta_id_fk", nullable = false)
     private Boleta boleta;
@@ -29,7 +28,17 @@ public class Detalle {
     // 🔔 LLAVE FORÁNEA 2: Muchos detalles usan UN Producto
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id_fk", nullable = false)
-    private Producto producto;
+    private Producto producto;*/
+
+    public Detalle(int detalle_id, int cantidad, int total, int descuento) {
+        this.detalle_id = detalle_id;
+        this.cantidad = cantidad;
+        this.total = total;
+        this.descuento = descuento;
+    }
+
+    public Detalle() {
+    }
 
     public int getDetalle_id() {
         return detalle_id;
@@ -63,26 +72,10 @@ public class Detalle {
         this.descuento = descuento;
     }
 
-    public Boleta getBoleta() {
-        return boleta;
-    }
-
-    public void setBoleta(Boleta boleta) {
-        this.boleta = boleta;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     @Override
     public String toString() {
-        return "Detalle{" + "detalle_id=" + detalle_id + ", cantidad=" + cantidad + ", total=" + total + ", descuento=" + descuento + ", boleta=" + boleta + ", producto=" + producto + '}';
+        return "Detalle{" + "detalle_id=" + detalle_id + ", cantidad=" + cantidad + ", total=" + total + ", descuento=" + descuento + '}';
     }
-    
-    
+
+       
 }

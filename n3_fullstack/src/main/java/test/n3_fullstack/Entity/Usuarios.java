@@ -13,16 +13,13 @@ public class Usuarios {
     private String contrasena;
     private String direccion;
     private String correo;
-    private int telefono;
+    @Column(name = "telefono", length = 20)
+    private String telefono;
     private String comuna;
     private String region;
+    private String rol;
 
-    @Override
-    public String toString() {
-        return "Usuarios{" + "user_id=" + user_id + ", nombreCompleto=" + nombreCompleto + ", contrasena=" + contrasena + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", comuna=" + comuna + ", region=" + region + '}';
-    }
-
-    public Usuarios(int user_id, String nombreCompleto, String contrasena, String direccion, String correo, int telefono, String comuna, String region) {
+    public Usuarios(int user_id, String nombreCompleto, String contrasena, String direccion, String correo, String telefono, String comuna, String region, String rol) {
         this.user_id = user_id;
         this.nombreCompleto = nombreCompleto;
         this.contrasena = contrasena;
@@ -31,6 +28,7 @@ public class Usuarios {
         this.telefono = telefono;
         this.comuna = comuna;
         this.region = region;
+        this.rol = rol;
     }
 
     public Usuarios() {
@@ -76,11 +74,11 @@ public class Usuarios {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -100,5 +98,19 @@ public class Usuarios {
         this.region = region;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" + "user_id=" + user_id + ", nombreCompleto=" + nombreCompleto + ", contrasena=" + contrasena + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", comuna=" + comuna + ", region=" + region + ", rol=" + rol + '}';
+    }
+
+    
  
 }

@@ -28,8 +28,16 @@ public class Categoria {
     @Column(name="categoriaNombre")
     private String nombreCategoria;
     
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Producto> productos;
+    /*@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Producto> productos;*/
+
+    public Categoria(int categoria_id, String nombreCategoria) {
+        this.categoria_id = categoria_id;
+        this.nombreCategoria = nombreCategoria;
+    }
+
+    public Categoria() {
+    }
 
     public int getCategoria_id() {
         return categoria_id;
@@ -47,18 +55,12 @@ public class Categoria {
         this.nombreCategoria = nombreCategoria;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
-
     @Override
     public String toString() {
-        return "Categoria{" + "categoria_id=" + categoria_id + ", nombreCategoria=" + nombreCategoria + ", productos=" + productos + '}';
+        return "Categoria{" + "categoria_id=" + categoria_id + ", nombreCategoria=" + nombreCategoria + '}';
     }
 
+    
+    
     
 }

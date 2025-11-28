@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 /**
  *
  * @author Duoc
  */
+@RequestMapping("/api")
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class ProductoController {
@@ -29,7 +31,6 @@ public class ProductoController {
     @PostMapping("/addProduct")
     public Producto addProducto(@RequestBody Producto producto) {
         // Llama al método para guardar un solo producto en el servicio
-        System.out.println(producto);
         return service.saveProducto(producto);
     }
   

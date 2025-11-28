@@ -24,36 +24,30 @@ public class Producto {
     private int stockCritico;
     private String url;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categotia_id_fk", nullable = false)
-    private Categoria categoria;
+    private Categoria categoria;*/
     
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
-    private List<Detalle> detalles;
+    /*@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
+    private List<Detalle> detalles;*/
 
-    public Producto(int Producto_id, String nombreProducto, int precio, String detalle, int stock, int stockCritico, String url, Categoria categoria, List<Detalle> detalles) {
-        this.Producto_id = Producto_id;
+    public Producto(String nombreProducto, int precio, String detalle, int stock, int stockCritico, String url, Categoria categoria) {
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.detalle = detalle;
         this.stock = stock;
         this.stockCritico = stockCritico;
         this.url = url;
-        this.categoria = categoria;
-        this.detalles = detalles;
+        
     }
-    
 
     public Producto() {
     }
-    
+
     public int getProducto_id() {
         return Producto_id;
     }
 
-    public void setProducto_id(int Producto_id) {
-        this.Producto_id = Producto_id;
-    }
 
     public String getNombreProducto() {
         return nombreProducto;
@@ -103,27 +97,17 @@ public class Producto {
         this.url = url;
     }
 
-    public Categoria getCategoria() {
+    /*public Categoria getCategoria() {
         return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public List<Detalle> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<Detalle> detalles) {
-        this.detalles = detalles;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Producto{" + "Producto_id=" + Producto_id + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", detalle=" + detalle + ", stock=" + stock + ", stockCritico=" + stockCritico + ", url=" + url + ", categoria=" + categoria + ", detalles=" + detalles + '}';
+        return "Producto{" + "Producto_id=" + Producto_id + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", detalle=" + detalle + ", stock=" + stock + ", stockCritico=" + stockCritico + ", url=" + url + ", categoria=" +'}';
     }
-
-    
     
 }

@@ -40,7 +40,7 @@ public class BoletaService {
     // 5. READ: Obtiene una boleta por el nombre de usuario
     // Utiliza el método 'usuarioboleta' definido en el repositorio
     public Boleta getBoletaByUsuario(String usuario) {
-        return repository.findByUsuarioNombreCompleto(usuario);
+        return repository.findByUsuario_NombreCompleto(usuario);
     }
 
     // 6. DELETE: Elimina una boleta por su ID

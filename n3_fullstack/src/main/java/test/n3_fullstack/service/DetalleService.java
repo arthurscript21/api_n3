@@ -47,8 +47,8 @@ public class DetalleService {
             existingDetalle.setTotal(d.getTotal());
             
             // Se asume que el objeto 'd' trae los objetos Producto y Boleta
-            existingDetalle.setBoleta(d.getBoleta()); 
-            existingDetalle.setProducto(d.getProducto());
+            /*existingDetalle.setBoleta(d.getBoleta()); */
+            existingDetalle.setDetalle_id(d.getDetalle_id());
             
             return repository.save(existingDetalle);
         }

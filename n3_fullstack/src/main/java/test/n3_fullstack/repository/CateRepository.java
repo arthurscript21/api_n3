@@ -11,6 +11,6 @@ public interface CateRepository extends JpaRepository<Categoria, Integer> {
     
     // Método para buscar una Categoria por su nombre.
     // Spring Data JPA implementará automáticamente la consulta.
-    public Categoria nombreCategoria(String nombreCategoria);
+    public Categoria findByNombreCategoria(String findByNombreCategoria);
     
 }

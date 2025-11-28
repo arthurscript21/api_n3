@@ -27,8 +27,21 @@ public class Boleta {
     @Column(name="total")
     private int totalboleta;
     
-   @ManyToOne(fetch = FetchType.LAZY)
+   /*@ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name = "user_id_fk", nullable = false)
+    private Usuarios usuario;*/
+
+    public Boleta(int boleta_id, Date fecha, int totalboleta) {
+        this.boleta_id = boleta_id;
+        this.fecha = fecha;
+        this.totalboleta = totalboleta;
+    }
+
+    public Boleta() {
+    }
+    
+    @ManyToOne // Or @OneToOne, depending on your relationship
+    @JoinColumn(name = "usuario_id") // Adjust the column name as needed
     private Usuarios usuario;
 
     public int getBoleta_id() {
@@ -55,17 +68,17 @@ public class Boleta {
         this.totalboleta = totalboleta;
     }
 
-    public Usuarios getUsuario() {
+   /* public Usuarios getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuarios usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Boleta{" + "boleta_id=" + boleta_id + ", fecha=" + fecha + ", totalboleta=" + totalboleta + ", usuario=" + usuario + '}';
+        return "Boleta{" + "boleta_id=" + boleta_id + ", fecha=" + fecha + ", totalboleta=" + totalboleta + ", usuario=" +  '}';
     }
 
    

@@ -41,7 +41,7 @@ public class CategoriaService {
     // 5. READ: Obtiene una categoría por su nombre
     // Utiliza el método 'nombreCategoria' definido en el repositorio
     public Categoria getCategoriaByNombre(String nombre) {
-        return repository.nombreCategoria(nombre);
+        return repository.findByNombreCategoria(nombre);
     }
 
     // 6. DELETE: Elimina una categoría por su ID
